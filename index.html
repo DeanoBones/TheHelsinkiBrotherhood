@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arma Ops Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #121212;
+      color: #e0e0e0;
+      line-height: 1.6;
+      position: relative;
+      overflow: hidden; /* Prevent scrolling while loading screen is active */
+    }
+
+    /* HUD Overlay Background (Checked Boxes Pattern) */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(90deg, rgba(26, 60, 26, 0.2) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(26, 60, 26, 0.2) 1px, transparent 1px),
+        rgba(50, 205, 50, 0.05); /* Green tint */
+      background-size: 20px 20px;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    /* Loading Screen */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #121212;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeOut 2s forwards;
+      animation-delay: 1s; /* Display for 1 second before fading */
+    }
+
+    .loading-screen img {
+      width: 300px;
+      height: 300px;
+      filter: drop-shadow(0 0 10px rgba(50, 205, 50, 0.8));
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      100% { opacity: 0; display: none; }
+    }
+
+    /* Main Content (Hidden Initially) */
+    .main-content {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .main-content.visible {
+      opacity: 1;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #2c2c2c;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+      color: #32cd32;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #32cd32;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+    .missions {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #2f2f2f;
+    }
+
+    .mission {
+      margin-bottom: 20px;
+    }
+
+    .mission-title {
+      font-weight: bold;
+      font-size: 1.2em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Status Indicators */
+    .status-indicator {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+
+    .status-active {
+      background-color: #32cd32;
+      animation: blink 1.5s infinite;
+    }
+
+    .status-completed {
+      background-color: #00b7eb;
+      animation: blink 1.5s infinite;
+    }
+
+    .status-failed {
+      background-color: #ff3333;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .status-label {
+      font-size: 0.8em;
+      margin-left: 5px;
+    }
+
+    .status-label.active {
+      color: #32cd32;
+    }
+
+    .status-label.completed {
+      color: #00b7eb;
+    }
+
+    .status-label.failed {
+      color: #ff3333;
+    }
+
+    .mission-date {
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #2c2c2c;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen">
+    <img src="Wolf.jpg" alt="Helsinki Brotherhood Insignia">
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+      <h1>Helsinki Brotherhood</h1>
+    </header>
+
+    <div class="container">
+      <h2>🪖 Mission Briefing</h2>
+      <video controls>
+        <source src="mission14.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <h2>📋 Current Missions</h2>
+      <div class="missions">
+        <div class="mission">
+          <div class="mission-title">
+            <span class="status-indicator status-active"></span>
+            Operation Cold Tide
+            <span class="status-label active">OPSTAT: ACTIVE</span>
+          </div>
+          <div class="mission-date">Week 2 – April 11, 2025</div>
+          <p>Covert maritime assault on Virolahti’s northeast docks to cripple enemy supply lines and divert pressure from the southeastern front.</p>
+        </div>
+        <div class="mission">
+          <div class="mission-title">
+            <span class="status-indicator status-completed"></span>
+            OPERATION FIRE WATCH
+            <span class="status-label completed">OPSTAT: COMPLETED</span>
+          </div>
+          <div class="mission-date">Week 1 – April 5, 2025</div>
+          <p>Establish our HQ and defend our new territory. Set up AA and MG nests. Resupply from crates in sector Bravo.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      © 2025 Squad Ops | Built by [Bucky]
+    </footer>
+  </div>
+
+  <script>
+    // Show the main content after the loading screen fades out
+    setTimeout(() => {
+      document.querySelector('.main-content').classList.add('visible');
+      document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }, 2500); // Matches the 1s delay + 1.5s fade-out duration
+  </script>
+</body>
+</html>
