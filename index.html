@@ -45,8 +45,8 @@
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      animation: fadeOut 2s forwards;
-      animation-delay: 1s; /* Display for 1 second before fading */
+      animation: fadeOut 4s forwards;
+      animation-delay: 1.5s; /* Display for 1 second before fading */
     }
 
     .loading-screen img {
@@ -232,7 +232,7 @@
     setTimeout(() => {
       document.querySelector('.main-content').classList.add('visible');
       document.body.style.overflow = 'auto'; // Re-enable scrolling
-    }, 2500); // Matches the 1s delay + 1.5s fade-out duration
+    }, 3000); // Matches the 1s delay + 1.5s fade-out duration
   </script>
 </body>
 </html>
