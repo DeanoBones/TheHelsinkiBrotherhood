@@ -45,14 +45,24 @@
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      animation: fadeOut 4s forwards;
-      animation-delay: 1.5s; /* Display for 1 second before fading */
+      animation: fadeOut 5s forwards;
+      animation-delay: 2s; /* Display for 2 second before fading */
+      flex-direction: column; /* Added to stack image and text vertically */
     }
 
     .loading-screen img {
-      width: 300px;
-      height: 300px;
+      width: 800px;
+      height: 800px;
       filter: drop-shadow(0 0 10px rgba(50, 205, 50, 0.8));
+    }
+
+    .loading-text {
+      color: #32cd32;
+      font-size: 1.2em;
+      letter-spacing: 2px;
+      margin-top: 20px;
+      text-align: center;
+      width: 100%;
     }
 
     @keyframes fadeOut {
@@ -184,6 +194,7 @@
   <!-- Loading Screen -->
   <div class="loading-screen">
     <img src="Wolf.jpg" alt="Helsinki Brotherhood Insignia">
+    <div class="loading-text"></div>
   </div>
 
   <!-- Main Content -->
@@ -195,7 +206,7 @@
     <div class="container">
       <h2>🪖 Mission Briefing</h2>
       <video controls>
-        <source src="mission14.mp4" type="video/mp4">
+        <source src="mission2.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
 
@@ -204,35 +215,53 @@
         <div class="mission">
           <div class="mission-title">
             <span class="status-indicator status-active"></span>
-            Operation Cold Tide
+            OPERATION KING’S LANDING
             <span class="status-label active">OPSTAT: ACTIVE</span>
           </div>
           <div class="mission-date">Week 2 – April 11, 2025</div>
-          <p>Covert maritime assault on Virolahti’s northeast docks to cripple enemy supply lines and divert pressure from the southeastern front.</p>
+          <p>Seize and secure the heliport near Harju. Establish full control of the surrounding area for future forward deployment.</p>
         </div>
         <div class="mission">
           <div class="mission-title">
             <span class="status-indicator status-completed"></span>
-            OPERATION FIRE WATCH
+            OPERATION STRONGHOLD
             <span class="status-label completed">OPSTAT: COMPLETED</span>
           </div>
           <div class="mission-date">Week 1 – April 5, 2025</div>
-          <p>Establish our HQ and defend our new territory. Set up AA and MG nests. Resupply from crates in sector Bravo.</p>
+          <p>Establish our HQ and set up a perimeter, including AA and MG nests, to secure the area. Win the hearts and minds of the local population as we solidify our presence.</p>
         </div>
       </div>
     </div>
 
     <footer>
-      © 2025 Squad Ops | Built by [Bucky]
+      © 2025 Squad Ops | Commander [Bucky]
     </footer>
   </div>
 
   <script>
-    // Show the main content after the loading screen fades out
-    setTimeout(() => {
-      document.querySelector('.main-content').classList.add('visible');
-      document.body.style.overflow = 'auto'; // Re-enable scrolling
-    }, 3000); // Matches the 1s delay + 1.5s fade-out duration
+    // Typing effect for loading screen
+    const loadingText = document.querySelector('.loading-text');
+    const textToType = 'INITIATING SYSTEM PROTOCOLS';
+    let index = 0;
+
+    function typeText() {
+      if (index < textToType.length) {
+        loadingText.textContent += textToType.charAt(index);
+        index++;
+        setTimeout(typeText, 100); // Adjust speed here (lower = faster)
+      }
+    }
+
+    // Start typing when page loads
+    window.onload = function() {
+      typeText();
+      
+      // Show the main content after the loading screen fades out
+      setTimeout(() => {
+        document.querySelector('.main-content').classList.add('visible');
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+      }, 4000); // Matches the 1s delay + 1.5s fade-out duration
+    };
   </script>
 </body>
 </html>
