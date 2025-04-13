@@ -55,6 +55,11 @@
       filter: drop-shadow(0 0 10px rgba(50, 205, 50, 0.8));
     }
 
+    .loading-screen.hidden {
+      display: none;
+      pointer-events: none;
+    }
+
     .loading-text {
       color: #32cd32;
       font-size: 1.2em;
@@ -66,7 +71,7 @@
 
     @keyframes fadeOut {
       0% { opacity: 1; }
-      100% { opacity: 0; display: none; }
+      100% { opacity: 0; }
     }
 
     .main-content {
@@ -108,6 +113,8 @@
       width: 100%;
       border-radius: 10px;
       margin-bottom: 40px;
+      position: relative;
+      z-index: 10;
     }
 
     .missions {
@@ -445,11 +452,13 @@
     window.onload = function() {
       typeText();
       setTimeout(() => {
+        const loadingScreen = document.querySelector('.loading-screen');
+        loadingScreen.classList.add('hidden');
         document.querySelector('.main-content').classList.add('visible');
         document.body.style.overflow = 'auto';
         renderMedals();
-        renderInfractions(); // Render infractions after content is visible
-      }, 4000);
+        renderInfractions();
+      }, 7000);
     };
   </script>
 </body>
