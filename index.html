@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -15,285 +16,293 @@
       position: relative;
       overflow: hidden;
     }
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    linear-gradient(90deg, rgba(26, 60, 26, 0.2) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(26, 60, 26, 0.2) 1px, transparent 1px),
-    rgba(50, 205, 50, 0.05);
-  background-size: 20px 20px;
-  z-index: -1;
-  opacity: 0.3;
-}
 
-.loading-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #121212;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: fadeOut 5s forwards;
-  animation-delay: 2s;
-  flex-direction: column;
-}
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(90deg, rgba(26, 60, 26, 0.2) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(26, 60, 26, 0.2) 1px, transparent 1px),
+        rgba(50, 205, 50, 0.05);
+      background-size: 20px 20px;
+      z-index: -1;
+      opacity: 0.3;
+    }
 
-.loading-screen img {
-  width: 800px;
-  height: 800px;
-  filter: drop-shadow(0 0 10px rgba(50, 205, 50, 0.8));
-}
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #121212;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeOut 5s forwards;
+      animation-delay: 2s;
+      flex-direction: column;
+    }
 
-.loading-text {
-  color: #32cd32;
-  font-size: 1.2em;
-  letter-spacing: 2px;
-  margin-top: 20px;
-  text-align: center;
-  width: 100%;
-}
+    .loading-screen img {
+      width: 800px;
+      height: 800px;
+      filter: drop-shadow(0 0 10px rgba(50, 205, 50, 0.8));
+    }
 
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; display: none; }
-}
+    .loading-screen.hidden {
+      display: none;
+      pointer-events: none;
+    }
 
-.main-content {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
+    .loading-text {
+      color: #32cd32;
+      font-size: 1.2em;
+      letter-spacing: 2px;
+      margin-top: 20px;
+      text-align: center;
+      width: 100%;
+    }
 
-.main-content.visible {
-  opacity: 1;
-}
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
 
-header {
-  background-color: #1f1f1f;
-  padding: 20px;
-  text-align: center;
-  border-bottom: 2px solid #2c2c2c;
-}
+    .main-content {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
 
-header h1 {
-  margin: 0;
-  font-size: 2.5em;
-  letter-spacing: 2px;
-  color: #32cd32;
-}
+    .main-content.visible {
+      opacity: 1;
+    }
 
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-}
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #2c2c2c;
+    }
 
-h2 {
-  color: #32cd32;
-  font-size: 1.8em;
-  margin-bottom: 10px;
-}
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+      color: #32cd32;
+    }
 
-video {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 40px;
-}
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-.missions {
-  background-color: #1a1a1a;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #2f2f2f;
-}
+    h2 {
+      color: #32cd32;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
 
-.mission {
-  margin-bottom: 20px;
-}
+    video {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 10;
+    }
 
-.mission-title {
-  font-weight: bold;
-  font-size: 1.2em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+    .missions {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #2f2f2f;
+    }
 
-.status-indicator {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-right: 5px;
-}
+    .mission {
+      margin-bottom: 20px;
+    }
 
-.status-active {
-  background-color: #32cd32;
-  animation: blink 1.5s infinite;
-}
+    .mission-title {
+      font-weight: bold;
+      font-size: 1.2em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-.status-completed {
-  background-color: #00b7eb;
-  animation: blink 1.5s infinite;
-}
+    .status-indicator {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
 
-.status-failed {
-  background-color: #ff3333;
-  animation: blink 1.5s infinite;
-}
+    .status-active {
+      background-color: #32cd32;
+      animation: blink 1.5s infinite;
+    }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
+    .status-completed {
+      background-color: #00b7eb;
+      animation: blink 1.5s infinite;
+    }
 
-.status-label {
-  font-size: 0.8em;
-  margin-left: 5px;
-}
+    .status-failed {
+      background-color: #ff3333;
+      animation: blink 1.5s infinite;
+    }
 
-.status-label.active {
-  color: #32cd32;
-}
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
 
-.status-label.completed {
-  color: #00b7eb;
-}
+    .status-label {
+      font-size: 0.8em;
+      margin-left: 5px;
+    }
 
-.status-label.failed {
-  color: #ff3333;
-}
+    .status-label.active {
+      color: #32cd32;
+    }
 
-.mission-date {
-  font-size: 0.9em;
-  color: #888;
-}
+    .status-label.completed {
+      color: #00b7eb;
+    }
 
-.medals {
-  background-color: #1a1a1a;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #2f2f2f;
-  margin-top: 20px;
-}
+    .status-label.failed {
+      color: #ff3333;
+    }
 
-.medal {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-  padding: 10px;
-  border-left: 3px solid #32cd32;
-  transition: transform 0.2s;
-}
+    .mission-date {
+      font-size: 0.9em;
+      color: #888;
+    }
 
-.medal:hover {
-  transform: translateX(5px);
-}
+    .medals {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #2f2f2f;
+      margin-top: 20px;
+    }
 
-.medal-icon {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  background-color: #32cd32;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2em;
-  color: #121212;
-}
+    .medal {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-left: 3px solid #32cd32;
+      transition: transform 0.2s;
+    }
 
-.medal-info {
-  flex: 1;
-}
+    .medal:hover {
+      transform: translateX(5px);
+    }
 
-.medal-title {
-  font-weight: bold;
-  font-size: 1.1em;
-  color: #e0e0e0;
-}
+    .medal-icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      background-color: #32cd32;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      color: #121212;
+    }
 
-.medal-recipient {
-  font-size: 0.9em;
-  color: #32cd32;
-}
+    .medal-info {
+      flex: 1;
+    }
 
-.medal-description {
-  font-size: 0.9em;
-  color: #888;
-}
+    .medal-title {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #e0e0e0;
+    }
 
-/* Infractions Section Styles */
-.infractions {
-  background-color: #1a1a1a;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #2f2f2f;
-  margin-top: 20px;
-}
+    .medal-recipient {
+      font-size: 0.9em;
+      color: #32cd32;
+    }
 
-.infraction {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-  padding: 10px;
-  border-left: 3px solid #ff3333; /* Red to indicate warning */
-  transition: transform 0.2s;
-}
+    .medal-description {
+      font-size: 0.9em;
+      color: #888;
+    }
 
-.infraction:hover {
-  transform: translateX(5px);
-}
+    /* Infractions Section Styles */
+    .infractions {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #2f2f2f;
+      margin-top: 20px;
+    }
 
-.infraction-icon {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  background-color: #ff3333;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2em;
-  color: #121212;
-}
+    .infraction {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-left: 3px solid #ff3333; /* Red to indicate warning */
+      transition: transform 0.2s;
+    }
 
-.infraction-info {
-  flex: 1;
-}
+    .infraction:hover {
+      transform: translateX(5px);
+    }
 
-.infraction-title {
-  font-weight: bold;
-  font-size: 1.1em;
-  color: #e0e0e0;
-}
+    .infraction-icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      background-color: #ff3333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      color: #121212;
+    }
 
-.infraction-recipient {
-  font-size: 0.9em;
-  color: #ff3333;
-}
+    .infraction-info {
+      flex: 1;
+    }
 
-.infraction-description {
-  font-size: 0.9em;
-  color: #888;
-}
+    .infraction-title {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #e0e0e0;
+    }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  border-top: 1px solid #2c2c2c;
-  color: #666;
-}
+    .infraction-recipient {
+      font-size: 0.9em;
+      color: #ff3333;
+    }
 
-  </style></head>
+    .infraction-description {
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #2c2c2c;
+      color: #666;
+    }
+  </style>
+</head>
 <body>
   <div class="loading-screen">
     <img src="Wolf.jpg" alt="Helsinki Brotherhood Insignia">
@@ -304,59 +313,59 @@ footer {
     <header>
       <h1>Helsinki Brotherhood</h1>
     </header>
-<div class="container">
-  <h2>🪖 Mission Briefing</h2>
-  <video controls>
-    <source src="mission3.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
 
-  <h2>📋 Current Missions</h2>
-  <div class="missions">
-    <div class="mission">
-      <div class="mission-title">
-        <span class="status-indicator status-active"></span>
-        OPERATION SILENT STORM
-        <span class="status-label active">OPSTAT: ACTIVE</span>
+    <div class="container">
+      <h2>🪖 Mission Briefing</h2>
+      <video controls>
+        <source src="mission3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <h2>📋 Current Missions</h2>
+      <div class="missions">
+        <div class="mission">
+          <div class="mission-title">
+            <span class="status-indicator status-active"></span>
+            OPERATION SILENT STORM
+            <span class="status-label active">OPSTAT: ACTIVE</span>
+          </div>
+          <div class="mission-date">Week 3 – April 18, 2025</div>
+          <p>Next operation is currently under review. Details remain classified until final briefing is issued.</p>
+        </div>
+        <div class="mission">
+          <div class="mission-title">
+            <span class="status-indicator status-completed"></span>
+            OPERATION KING’S LANDING
+            <span class="status-label completed">OPSTAT: COMPLETED</span>
+          </div>
+          <div class="mission-date">Week 2 – April 11, 2025</div>
+          <p>Seize and secure the heliport near Harju. Establish full control of the surrounding area for future forward deployment.</p>
+        </div>
+        <div class="mission">
+          <div class="mission-title">
+            <span class="status-indicator status-completed"></span>
+            OPERATION STRONGHOLD
+            <span class="status-label completed">OPSTAT: COMPLETED</span>
+          </div>
+          <div class="mission-date">Week 1 – April 5, 2025</div>
+          <p>Establish our HQ and set up a perimeter, including AA and MG nests. Win the hearts and minds of the local population by delivering supplies while solidifying our presence.</p>
+        </div>
       </div>
-      <div class="mission-date">Week 3 – April 18, 2025</div>
-      <p>Next operation is currently under review. Details remain classified until final briefing is issued.</p>
-    </div>
-    <div class="mission">
-      <div class="mission-title">
-        <span class="status-indicator status-completed"></span>
-        OPERATION KING’S LANDING
-        <span class="status-label completed">OPSTAT: COMPLETED</span>
+
+      <h2>🎖️ Medals Awarded</h2>
+      <div class="medals">
+        <!-- Medals populated via JavaScript -->
       </div>
-      <div class="mission-date">Week 2 – April 11, 2025</div>
-      <p>Seize and secure the heliport near Harju. Establish full control of the surrounding area for future forward deployment.</p>
-    </div>
-    <div class="mission">
-      <div class="mission-title">
-        <span class="status-indicator status-completed"></span>
-        OPERATION STRONGHOLD
-        <span class="status-label completed">OPSTAT: COMPLETED</span>
+
+      <h2>⚠️ Infractions Issued</h2>
+      <div class="infractions">
+        <!-- Infractions populated via JavaScript -->
       </div>
-      <div class="mission-date">Week 1 – April 5, 2025</div>
-      <p>Establish our HQ and set up a perimeter, including AA and MG nests. Win the hearts and minds of the local population by delivering supplies while solidifying our presence.</p>
     </div>
-  </div>
 
-  <h2>🎖️ Medals Awarded</h2>
-  <div class="medals">
-    <!-- Medals populated via JavaScript -->
-  </div>
-
-  <h2>⚠️ Infractions Issued</h2>
-  <div class="infractions">
-    <!-- Infractions populated via JavaScript -->
-  </div>
-</div>
-
-<footer>
-  © 2025 Squad Ops | Commander [Bucky]
-</footer>
-
+    <footer>
+      © 2025 Squad Ops | Commander [Bucky]
+    </footer>
   </div>
 
   <script>
@@ -411,7 +420,7 @@ footer {
         const medalElement = document.createElement('div');
         medalElement.classList.add('medal');
         medalElement.innerHTML = `
-          <div class="medal-icon"></div>
+          <div class="medal-icon">🏅</div>
           <div class="medal-info">
             <div class="medal-title">${medal.title}</div>
             <div class="medal-recipient">Awarded to: ${medal.recipient}</div>
@@ -429,7 +438,7 @@ footer {
         const infractionElement = document.createElement('div');
         infractionElement.classList.add('infraction');
         infractionElement.innerHTML = `
-          <div class="infraction-icon"></div>
+          <div class="infraction-icon">⚠️</div>
           <div class="infraction-info">
             <div class="infraction-title">${infraction.title}</div>
             <div class="infraction-recipient">Issued to: ${infraction.recipient}</div>
@@ -443,13 +452,14 @@ footer {
     window.onload = function() {
       typeText();
       setTimeout(() => {
+        const loadingScreen = document.querySelector('.loading-screen');
+        loadingScreen.classList.add('hidden');
         document.querySelector('.main-content').classList.add('visible');
         document.body.style.overflow = 'auto';
         renderMedals();
-        renderInfractions(); // Render infractions after content is visible
-      }, 4000);
+        renderInfractions();
+      }, 7000);
     };
   </script>
 </body>
 </html>
-
