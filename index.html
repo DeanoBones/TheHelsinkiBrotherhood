@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Arma Ops Hub</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="favicon.ico"> <!-- Added favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style>
     body {
       margin: 0;
@@ -14,10 +14,9 @@
       color: #e0e0e0;
       line-height: 1.6;
       position: relative;
-      overflow: hidden; /* Prevent scrolling while loading screen is active */
+      overflow: hidden;
     }
 
-    /* HUD Overlay Background (Checked Boxes Pattern) */
     body::before {
       content: '';
       position: fixed;
@@ -28,13 +27,12 @@
       background: 
         linear-gradient(90deg, rgba(26, 60, 26, 0.2) 1px, transparent 1px),
         linear-gradient(0deg, rgba(26, 60, 26, 0.2) 1px, transparent 1px),
-        rgba(50, 205, 50, 0.05); /* Green tint */
+        rgba(50, 205, 50, 0.05);
       background-size: 20px 20px;
       z-index: -1;
       opacity: 0.3;
     }
 
-    /* Loading Screen */
     .loading-screen {
       position: fixed;
       top: 0;
@@ -47,8 +45,8 @@
       align-items: center;
       z-index: 1000;
       animation: fadeOut 5s forwards;
-      animation-delay: 2s; /* Display for 2 second before fading */
-      flex-direction: column; /* Added to stack image and text vertically */
+      animation-delay: 2s;
+      flex-direction: column;
     }
 
     .loading-screen img {
@@ -71,7 +69,6 @@
       100% { opacity: 0; display: none; }
     }
 
-    /* Main Content (Hidden Initially) */
     .main-content {
       opacity: 0;
       transition: opacity 0.5s ease;
@@ -132,7 +129,6 @@
       gap: 8px;
     }
 
-    /* Status Indicators */
     .status-indicator {
       display: inline-block;
       width: 10px;
@@ -183,6 +179,115 @@
       color: #888;
     }
 
+    .medals {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #2f2f2f;
+      margin-top: 20px;
+    }
+
+    .medal {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-left: 3px solid #32cd32;
+      transition: transform 0.2s;
+    }
+
+    .medal:hover {
+      transform: translateX(5px);
+    }
+
+    .medal-icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      background-color: #32cd32;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      color: #121212;
+    }
+
+    .medal-info {
+      flex: 1;
+    }
+
+    .medal-title {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #e0e0e0;
+    }
+
+    .medal-recipient {
+      font-size: 0.9em;
+      color: #32cd32;
+    }
+
+    .medal-description {
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    /* Infractions Section Styles */
+    .infractions {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #2f2f2f;
+      margin-top: 20px;
+    }
+
+    .infraction {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-left: 3px solid #ff3333; /* Red to indicate warning */
+      transition: transform 0.2s;
+    }
+
+    .infraction:hover {
+      transform: translateX(5px);
+    }
+
+    .infraction-icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      background-color: #ff3333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      color: #121212;
+    }
+
+    .infraction-info {
+      flex: 1;
+    }
+
+    .infraction-title {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #e0e0e0;
+    }
+
+    .infraction-recipient {
+      font-size: 0.9em;
+      color: #ff3333;
+    }
+
+    .infraction-description {
+      font-size: 0.9em;
+      color: #888;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -192,13 +297,11 @@
   </style>
 </head>
 <body>
-  <!-- Loading Screen -->
   <div class="loading-screen">
     <img src="Wolf.jpg" alt="Helsinki Brotherhood Insignia">
     <div class="loading-text"></div>
   </div>
 
-  <!-- Main Content -->
   <div class="main-content">
     <header>
       <h1>Helsinki Brotherhood</h1>
@@ -213,7 +316,7 @@
 
       <h2>📋 Current Missions</h2>
       <div class="missions">
-		<div class="mission">
+        <div class="mission">
           <div class="mission-title">
             <span class="status-indicator status-active"></span>
             OPERATION SILENT STORM
@@ -241,6 +344,16 @@
           <p>Establish our HQ and set up a perimeter, including AA and MG nests. Win the hearts and minds of the local population by delivering supplies while solidifying our presence.</p>
         </div>
       </div>
+
+      <h2>🎖️ Medals Awarded</h2>
+      <div class="medals">
+        <!-- Medals populated via JavaScript -->
+      </div>
+
+      <h2>⚠️ Infractions Issued</h2>
+      <div class="infractions">
+        <!-- Infractions populated via JavaScript -->
+      </div>
     </div>
 
     <footer>
@@ -249,7 +362,6 @@
   </div>
 
   <script>
-    // Typing effect for loading screen
     const loadingText = document.querySelector('.loading-text');
     const textToType = 'INITIATING SYSTEM PROTOCOLS';
     let index = 0;
@@ -258,19 +370,86 @@
       if (index < textToType.length) {
         loadingText.textContent += textToType.charAt(index);
         index++;
-        setTimeout(typeText, 100); // Adjust speed here (lower = faster)
+        setTimeout(typeText, 100);
       }
     }
 
-    // Start typing when page loads
+    // Medal data with placeholders
+    const medals = [
+      {
+        title: "TBD",
+        recipient: "TBD",
+        description: "Award pending for outstanding performance in recent operations.",
+        date: "TBD"
+      },
+      {
+        title: "TBD",
+        recipient: "TBD",
+        description: "Recognition to be announced following mission debrief.",
+        date: "TBD"
+      }
+    ];
+
+    // Infraction data with placeholders
+    const infractions = [
+      {
+        title: "TBD",
+        recipient: "TBD",
+        description: "Incident pending investigation from recent operations.",
+        date: "TBD"
+      },
+      {
+        title: "TBD",
+        recipient: "TBD",
+        description: "Review underway for potential rules of engagement violation.",
+        date: "TBD"
+      }
+    ];
+
+    // Function to render medals
+    function renderMedals() {
+      const medalsContainer = document.querySelector('.medals');
+      medals.forEach(medal => {
+        const medalElement = document.createElement('div');
+        medalElement.classList.add('medal');
+        medalElement.innerHTML = `
+          <div class="medal-icon">🏅</div>
+          <div class="medal-info">
+            <div class="medal-title">${medal.title}</div>
+            <div class="medal-recipient">Awarded to: ${medal.recipient}</div>
+            <div class="medal-description">${medal.description} (${medal.date})</div>
+          </div>
+        `;
+        medalsContainer.appendChild(medalElement);
+      });
+    }
+
+    // Function to render infractions
+    function renderInfractions() {
+      const infractionsContainer = document.querySelector('.infractions');
+      infractions.forEach(infraction => {
+        const infractionElement = document.createElement('div');
+        infractionElement.classList.add('infraction');
+        infractionElement.innerHTML = `
+          <div class="infraction-icon">⚠️</div>
+          <div class="infraction-info">
+            <div class="infraction-title">${infraction.title}</div>
+            <div class="infraction-recipient">Issued to: ${infraction.recipient}</div>
+            <div class="infraction-description">${infraction.description} (${infraction.date})</div>
+          </div>
+        `;
+        infractionsContainer.appendChild(infractionElement);
+      });
+    }
+
     window.onload = function() {
       typeText();
-      
-      // Show the main content after the loading screen fades out
       setTimeout(() => {
         document.querySelector('.main-content').classList.add('visible');
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
-      }, 4000); // Matches the 1s delay + 1.5s fade-out duration
+        document.body.style.overflow = 'auto';
+        renderMedals();
+        renderInfractions(); // Render infractions after content is visible
+      }, 4000);
     };
   </script>
 </body>
