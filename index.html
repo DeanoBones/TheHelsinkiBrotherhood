@@ -93,11 +93,11 @@
       margin-top: 20px;
       text-align: center;
       width: 100%;
-      transition: color 6s ease; /* Add transition for color change */
+      transition: color 6s ease;
     }
 
     .loading-text.fade-to-red {
-      color: #8B0000; /* Blood red to match the logo glow */
+      color: #8B0000;
     }
 
     .main-content {
@@ -133,6 +133,16 @@
       color: #32cd32;
       font-size: 1.8em;
       margin-bottom: 10px;
+    }
+
+    h3 {
+      color: #32cd32;
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+
+    .squad-member-infractions h3 {
+      color: #ff3333;
     }
 
     video {
@@ -212,7 +222,7 @@
       color: #888;
     }
 
-    .medals {
+    .weekly-medals {
       background-color: #1a1a1a;
       padding: 20px;
       border-radius: 10px;
@@ -320,6 +330,273 @@
       color: #888;
     }
 
+    /* Squad Panel */
+    .squad-panel {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 400px;
+      height: 100vh;
+      background-color: #1a1a1a;
+      border-left: 1px solid #2f2f2f;
+      padding: 20px;
+      z-index: 99;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      box-sizing: border-box;
+      scrollbar-width: thin;
+      scrollbar-color: #32cd32 #2f2f2f;
+      cursor: pointer;
+    }
+
+    .squad-panel:hover {
+      background-color: #222222;
+    }
+
+    .squad-panel::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .squad-panel::-webkit-scrollbar-track {
+      background: #2f2f2f;
+    }
+
+    .squad-panel::-webkit-scrollbar-thumb {
+      background: #32cd32;
+      border-radius: 4px;
+    }
+
+    .squad-panel::-webkit-scrollbar-thumb:hover {
+      background: #3f9f3f;
+    }
+
+    .squad-panel.open {
+      right: 0;
+      cursor: default;
+    }
+
+    .squad-panel h2 {
+      color: #32cd32;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      margin-top: 0;
+    }
+
+    .squad-members {
+      padding-bottom: 20px;
+    }
+
+    .squad-member {
+      margin-bottom: 15px;
+    }
+
+    .squad-member-header {
+      background-color: #2f2f2f;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 1.2em;
+      color: #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px;
+      transition: background-color 0.2s;
+    }
+
+    .squad-member-header:hover {
+      background-color: #3f3f3f;
+    }
+
+    .squad-member-header::after {
+      content: '▼';
+      font-size: 0.8em;
+    }
+
+    .squad-member-header.open::after {
+      content: '▲';
+    }
+
+    .squad-member-medals, .squad-member-infractions {
+      display: none;
+      padding: 10px;
+      background-color: #121212;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+
+    .squad-member-medals.open, .squad-member-infractions.open {
+      display: block;
+    }
+
+    .squad-member-medal, .squad-member-infraction {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    .squad-member-medal {
+      border-left: 2px solid #32cd32;
+    }
+
+    .squad-member-infraction {
+      border-left: 2px solid #ff3333;
+    }
+
+    .squad-member-medal-icon, .squad-member-infraction-icon {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1em;
+      color: #121212;
+    }
+
+    .squad-member-medal-icon {
+      background-color: #32cd32;
+    }
+
+    .squad-member-infraction-icon {
+      background-color: #ff3333;
+    }
+
+    .squad-member-medal-info, .squad-member-infraction-info {
+      flex: 1;
+    }
+
+    .squad-member-medal-title, .squad-member-infraction-title {
+      font-weight: bold;
+      font-size: 1em;
+      color: #e0e0e0;
+    }
+
+    .squad-member-medal-description, .squad-member-infraction-description {
+      font-size: 0.85em;
+      color: #888;
+    }
+
+    /* Creed Panel (Replaces Medals and Ribbons) */
+    .creed-panel {
+      position: fixed;
+      top: 0;
+      left: -300px;
+      width: 400px;
+      height: 100vh;
+      background-color: #1a1a1a;
+      border-right: 1px solid #2f2f2f;
+      padding: 20px;
+      z-index: 99;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      box-sizing: border-box;
+      scrollbar-width: thin;
+      scrollbar-color: #32cd32 #2f2f2f;
+      cursor: pointer;
+    }
+
+    .creed-panel:hover {
+      background-color: #222222;
+    }
+
+    .creed-panel::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .creed-panel::-webkit-scrollbar-track {
+      background: #2f2f2f;
+    }
+
+    .creed-panel::-webkit-scrollbar-thumb {
+      background: #32cd32;
+      border-radius: 4px;
+    }
+
+    .creed-panel::-webkit-scrollbar-thumb:hover {
+      background: #3f9f3f;
+    }
+
+    .creed-panel.open {
+      left: 0;
+      cursor: default;
+    }
+
+    .creed-panel h2 {
+      color: #32cd32;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      margin-top: 0;
+    }
+
+    .creed-insignias {
+      padding-bottom: 20px;
+    }
+
+    .insignia-item {
+      margin-bottom: 15px;
+    }
+
+    .insignia-header {
+      display: flex;
+      align-items: center;
+      background-color: #2f2f2f;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 1.2em;
+      color: #e0e0e0;
+      border-radius: 5px;
+      transition: background-color 0.2s;
+    }
+
+    .insignia-header:hover {
+      background-color: #3f3f3f;
+    }
+
+    .insignia-header img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: box-shadow 0.2s;
+    }
+
+    .insignia-header:hover img {
+      box-shadow: 0 0 5px #32cd32;
+    }
+
+    .insignia-title {
+      flex: 1;
+    }
+
+    .insignia-header::after {
+      content: '▼';
+      font-size: 0.8em;
+      color: #32cd32;
+    }
+
+    .insignia-header.open::after {
+      content: '▲';
+    }
+
+    .insignia-caption {
+      display: none;
+      padding: 10px;
+      background-color: #121212;
+      border-radius: 5px;
+      margin-top: 5px;
+      border-left: 2px solid #32cd32;
+      font-size: 0.85em;
+      color: #888;
+      font-style: italic;
+    }
+
+    .insignia-caption.open {
+      display: block;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -335,6 +612,16 @@
       <img id="new-logo" src="wolf2.jpg" alt="Helsinki Brotherhood Insignia (New)">
     </div>
     <div class="loading-text"></div>
+  </div>
+
+  <div class="creed-panel">
+    <h2>🛡️ Our Creed</h2>
+    <div class="creed-insignias"></div>
+  </div>
+
+  <div class="squad-panel">
+    <h2>👥 Squad Roster</h2>
+    <div class="squad-members"></div>
   </div>
 
   <div class="main-content">
@@ -380,9 +667,9 @@
         </div>
       </div>
 
-      <h2>🎖️ Medals Awarded</h2>
-      <div class="medals">
-        <!-- Medals populated via JavaScript -->
+      <h2>🎖️ Weekly Medals</h2>
+      <div class="weekly-medals">
+        <!-- Weekly medals populated via JavaScript -->
       </div>
 
       <h2>⚠️ Infractions Issued</h2>
@@ -409,94 +696,378 @@
       }
     }
 
-    const medals = [
+    // Weekly medals for the main page (replace each week)
+    const weeklyMedals = [
       {
-        title: "TBD",
-        recipient: "TBD",
-        description: "Award pending for outstanding performance in recent operations.",
-        date: "TBD"
+        title: 'Navy Cross',
+        recipient: 'Bucky',
+        description: 'For leading the covert raid in OPERATION SILENT STORM, ensuring zero detections.',
+        date: 'April 19, 2025'
       },
       {
-        title: "TBD",
-        recipient: "TBD",
-        description: "Recognition to be announced following mission debrief.",
-        date: "TBD"
+        title: 'Achievement Medal',
+        recipient: 'Aust',
+        description: 'For precise mine placement during OPERATION SILENT STORM, disrupting enemy logistics.',
+        date: 'April 19, 2025'
       }
     ];
 
-    const infractions = [
+    // Weekly infractions for the main page (replace each week)
+    const weeklyInfractions = [
       {
-        title: "TBD",
-        recipient: "TBD",
-        description: "Incident pending investigation from recent operations.",
-        date: "TBD"
-      },
-      {
-        title: "TBD",
-        recipient: "TBD",
-        description: "Review underway for potential rules of engagement violation.",
-        date: "TBD"
+        title: 'Rules of Engagement Violation',
+        recipient: 'Jonny',
+        description: 'Engaged non-hostile target during OPERATION SILENT STORM.',
+        date: 'April 19, 2025'
       }
     ];
 
-    function renderMedals() {
-      const medalsContainer = document.querySelector('.medals');
-      medals.forEach(medal => {
-        const medalElement = document.createElement('div');
-        medalElement.classList.add('medal');
-        medalElement.innerHTML = `
-          <div class="medal-icon">🏅</div>
-          <div class="medal-info">
-            <div class="medal-title">${medal.title}</div>
-            <div class="medal-recipient">Awarded to: ${medal.recipient}</div>
-            <div class="medal-description">${medal.description} (${medal.date})</div>
-          </div>
-        `;
-        medalsContainer.appendChild(medalElement);
-      });
+    // Squad members with accumulating medals and infractions
+    const squadMembers = [
+      {
+        name: 'Bucky',
+        medals: [
+          {
+            title: 'Medal of Valor',
+            description: 'For exceptional leadership during OPERATION STRONGHOLD, ensuring the successful establishment of the HQ under heavy enemy fire.',
+            date: 'April 5, 2025'
+          },
+          {
+            title: 'Distinguished Service Cross',
+            description: 'For coordinating the heliport seizure in OPERATION KING’S LANDING, maintaining squad cohesion despite intense resistance.',
+            date: 'April 11, 2025'
+          },
+          {
+            title: 'Navy Cross',
+            description: 'For leading the covert raid in OPERATION SILENT STORM, ensuring zero detections.',
+            date: 'April 19, 2025'
+          }
+        ],
+        infractions: [
+          {
+            title: 'Minor Conduct Violation',
+            description: 'Failure to follow radio protocol during OPERATION STRONGHOLD.',
+            date: 'April 5, 2025'
+          }
+        ]
+      },
+      {
+        name: 'Aust',
+        medals: [
+          {
+            title: 'Bronze Star',
+            description: 'For eliminating a high-value target during OPERATION STRONGHOLD, disrupting enemy command structure.',
+            date: 'April 5, 2025'
+          },
+          {
+            title: 'Purple Heart',
+            description: 'For sustaining injuries while protecting teammates during OPERATION KING’S LANDING.',
+            date: 'April 11, 2025'
+          },
+          {
+            title: 'Achievement Medal',
+            description: 'For precise mine placement during OPERATION SILENT STORM, disrupting enemy logistics.',
+            date: 'April 19, 2025'
+          }
+        ],
+        infractions: []
+      },
+      {
+        name: 'Old Man Bones',
+        medals: [
+          {
+            title: 'Commendation Medal',
+            description: 'For providing critical medical support during OPERATION STRONGHOLD, saving multiple squad members.',
+            date: 'April 5, 2025'
+          },
+          {
+            title: 'Silver Star',
+            description: 'For single-handedly holding a defensive position during OPERATION KING’S LANDING, allowing the squad to regroup.',
+            date: 'April 11, 2025'
+          }
+        ],
+        infractions: [
+          {
+            title: 'Equipment Misuse',
+            description: 'Improper handling of medical supplies during OPERATION KING’S LANDING.',
+            date: 'April 11, 2025'
+          }
+        ]
+      },
+      {
+        name: 'Jonny',
+        medals: [
+          {
+            title: 'Meritorious Service Medal',
+            description: 'For exceptional marksmanship during OPERATION STRONGHOLD, neutralizing key enemy positions.',
+            date: 'April 5, 2025'
+          },
+          {
+            title: 'Combat Action Medal',
+            description: 'For engaging multiple enemy combatants during OPERATION KING’S LANDING, securing the heliport.',
+            date: 'April 11, 2025'
+          }
+        ],
+        infractions: [
+          {
+            title: 'Rules of Engagement Violation',
+            description: 'Engaged non-hostile target during OPERATION SILENT STORM.',
+            date: 'April 19, 2025'
+          }
+        ]
+      }
+    ];
+
+    // Creed Insignias reflecting the squad's values and identity
+    const creedInsignias = [
+      {
+        title: 'Wolf’s Heart',
+        icon: 'wolf2.jpg',
+        caption: 'Endurance runs deep, we shall never surrender.'
+      },
+      {
+        title: 'Blood Pack',
+        icon: 'wolf2.jpg',
+        caption: 'Brothers forged in blood, together we stand.'
+      },
+      {
+        title: 'Shadow Pelt',
+        icon: 'wolf2.jpg',
+        caption: 'Unseen we roam, nowhere yet everywhere.'
+      },
+      {
+        title: 'Frost Fang',
+        icon: 'wolf2.jpg',
+        caption: 'We strike the enemy hard, anywhere they hide.'
+      },
+      {
+        title: 'Nation’s Howl',
+        icon: 'wolf2.jpg',
+        caption: 'All who hear us will join our cause.'
+      },
+      {
+        title: 'Raven’s Ally',
+        icon: 'wolf2.jpg',
+        caption: 'With cunning allies, we survive through scavenging.'
+      },
+      {
+        title: 'Iron Claw',
+        icon: 'wolf2.jpg',
+        caption: 'We fight with every tool against tyranny.'
+      },
+      {
+        title: 'Ember Gaze',
+        icon: 'wolf2.jpg',
+        caption: 'Always watching, always ready.'
+      }
+    ];
+
+    function renderWeeklyMedals() {
+      const weeklyMedalsContainer = document.querySelector('.weekly-medals');
+      if (weeklyMedals.length === 0) {
+        weeklyMedalsContainer.innerHTML = '<p>No medals awarded this week.</p>';
+      } else {
+        weeklyMedals.forEach(medal => {
+          const medalElement = document.createElement('div');
+          medalElement.classList.add('medal');
+          medalElement.innerHTML = `
+            <div class="medal-icon">🏅</div>
+            <div class="medal-info">
+              <div class="medal-title">${medal.title}</div>
+              <div class="medal-recipient">Awarded to: ${medal.recipient}</div>
+              <div class="medal-description">${medal.description} (${medal.date})</div>
+            </div>
+          `;
+          weeklyMedalsContainer.appendChild(medalElement);
+        });
+      }
     }
 
     function renderInfractions() {
       const infractionsContainer = document.querySelector('.infractions');
-      infractions.forEach(infraction => {
-        const infractionElement = document.createElement('div');
-        infractionElement.classList.add('infraction');
-        infractionElement.innerHTML = `
-          <div class="infraction-icon">⚠️</div>
-          <div class="infraction-info">
-            <div class="infraction-title">${infraction.title}</div>
-            <div class="infraction-recipient">Issued to: ${infraction.recipient}</div>
-            <div class="infraction-description">${infraction.description} (${infraction.date})</div>
+      if (weeklyInfractions.length === 0) {
+        infractionsContainer.innerHTML = '<p>No infractions issued this week.</p>';
+      } else {
+        weeklyInfractions.forEach(infraction => {
+          const infractionElement = document.createElement('div');
+          infractionElement.classList.add('infraction');
+          infractionElement.innerHTML = `
+            <div class="infraction-icon">⚠️</div>
+            <div class="infraction-info">
+              <div class="infraction-title">${infraction.title}</div>
+              <div class="infraction-recipient">Issued to: ${infraction.recipient}</div>
+              <div class="infraction-description">${infraction.description} (${infraction.date})</div>
+            </div>
+          `;
+          infractionsContainer.appendChild(infractionElement);
+        });
+      }
+    }
+
+    function renderSquadPanel() {
+      const squadMembersContainer = document.querySelector('.squad-members');
+      squadMembersContainer.innerHTML = '';
+      squadMembers.forEach(member => {
+        const memberElement = document.createElement('div');
+        memberElement.classList.add('squad-member');
+        memberElement.innerHTML = `
+          <div class="squad-member-header">${member.name}</div>
+          <div class="squad-member-medals">
+            <h3>🎖️ Medals</h3>
+            ${member.medals.length === 0 ? '<p>No medals awarded.</p>' : ''}
+          </div>
+          <div class="squad-member-infractions">
+            <h3>⚠️ Infractions</h3>
+            ${member.infractions.length === 0 ? '<p>No infractions issued.</p>' : ''}
           </div>
         `;
-        infractionsContainer.appendChild(infractionElement);
+        squadMembersContainer.appendChild(memberElement);
+
+        // Render Medals
+        const medalsContainer = memberElement.querySelector('.squad-member-medals');
+        member.medals.forEach(medal => {
+          const medalElement = document.createElement('div');
+          medalElement.classList.add('squad-member-medal');
+          medalElement.innerHTML = `
+            <div class="squad-member-medal-icon">🏅</div>
+            <div class="squad-member-medal-info">
+              <div class="squad-member-medal-title">${medal.title}</div>
+              <div class="squad-member-medal-description">${medal.description} (${medal.date})</div>
+            </div>
+          `;
+          medalsContainer.appendChild(medalElement);
+        });
+
+        // Render Infractions
+        const infractionsContainer = memberElement.querySelector('.squad-member-infractions');
+        member.infractions.forEach(infraction => {
+          const infractionElement = document.createElement('div');
+          infractionElement.classList.add('squad-member-infraction');
+          infractionElement.innerHTML = `
+            <div class="squad-member-infraction-icon">⚠️</div>
+            <div class="squad-member-infraction-info">
+              <div class="squad-member-infraction-title">${infraction.title}</div>
+              <div class="squad-member-infraction-description">${infraction.description} (${infraction.date})</div>
+            </div>
+          `;
+          infractionsContainer.appendChild(infractionElement);
+        });
+      });
+
+      // Add event listeners for squad member headers
+      document.querySelectorAll('.squad-member-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const medalsDiv = header.nextElementSibling;
+          const infractionsDiv = medalsDiv.nextElementSibling;
+          const isOpen = medalsDiv.classList.contains('open');
+          document.querySelectorAll('.squad-member-medals, .squad-member-infractions').forEach(div => {
+            div.classList.remove('open');
+          });
+          document.querySelectorAll('.squad-member-header').forEach(h => {
+            h.classList.remove('open');
+          });
+          if (!isOpen) {
+            medalsDiv.classList.add('open');
+            infractionsDiv.classList.add('open');
+            header.classList.add('open');
+          }
+        });
+      });
+    }
+
+    function renderCreedPanel() {
+      const creedInsigniasContainer = document.querySelector('.creed-insignias');
+      creedInsigniasContainer.innerHTML = '';
+      creedInsignias.forEach(insignia => {
+        const insigniaElement = document.createElement('div');
+        insigniaElement.classList.add('insignia-item');
+        insigniaElement.innerHTML = `
+          <div class="insignia-header">
+            <img src="${insignia.icon}" alt="${insignia.title}">
+            <div class="insignia-title">${insignia.title}</div>
+          </div>
+          <div class="insignia-caption">${insignia.caption}</div>
+        `;
+        creedInsigniasContainer.appendChild(insigniaElement);
+      });
+
+      // Add event listeners for insignia headers
+      document.querySelectorAll('.insignia-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const captionDiv = header.nextElementSibling;
+          const isOpen = captionDiv.classList.contains('open');
+          document.querySelectorAll('.insignia-caption').forEach(div => {
+            div.classList.remove('open');
+          });
+          document.querySelectorAll('.insignia-header').forEach(h => {
+            h.classList.remove('open');
+          });
+          if (!isOpen) {
+            captionDiv.classList.add('open');
+            header.classList.add('open');
+          }
+        });
       });
     }
 
     window.onload = function() {
       typeText();
 
-      // Start the logo transition, glow effect, and text color transition after 2 seconds
+      // Start the logo transition
       setTimeout(() => {
         const oldLogo = document.querySelector('#old-logo');
         const newLogo = document.querySelector('#new-logo');
         const loadingText = document.querySelector('.loading-text');
         oldLogo.style.opacity = '0';
-        oldLogo.classList.add('fade-out'); // Trigger glow transition for old logo
+        oldLogo.classList.add('fade-out');
         newLogo.style.opacity = '1';
-        newLogo.classList.add('fade-in'); // Trigger glow transition for new logo
-        loadingText.classList.add('fade-to-red'); // Trigger text color transition
-      }, 1000); // 2-second delay
+        newLogo.classList.add('fade-in');
+        loadingText.classList.add('fade-to-red');
+      }, 500);
 
-      // After the transition (2s delay + 6s transition + 1s pause), hide the loading screen and show the main content
+      // Hide loading screen and show main content
       setTimeout(() => {
         const loadingScreen = document.querySelector('.loading-screen');
         loadingScreen.classList.add('hidden');
         document.querySelector('.main-content').classList.add('visible');
         document.body.style.overflow = 'auto';
-        renderMedals();
+        renderWeeklyMedals();
         renderInfractions();
-      }, 7000); // 2s delay + 6s transition + 1s pause
+        renderSquadPanel();
+        renderCreedPanel();
+      }, 6000);
+
+      // Squad panel hover functionality
+      const squadPanel = document.querySelector('.squad-panel');
+      let squadHoverTimeout;
+
+      squadPanel.addEventListener('mouseenter', () => {
+        clearTimeout(squadHoverTimeout);
+        squadHoverTimeout = setTimeout(() => {
+          squadPanel.classList.add('open');
+        }, 100);
+      });
+
+      squadPanel.addEventListener('mouseleave', () => {
+        clearTimeout(squadHoverTimeout);
+        squadPanel.classList.remove('open');
+      });
+
+      // Creed panel hover functionality
+      const creedPanel = document.querySelector('.creed-panel');
+      let creedHoverTimeout;
+
+      creedPanel.addEventListener('mouseenter', () => {
+        clearTimeout(creedHoverTimeout);
+        creedHoverTimeout = setTimeout(() => {
+          creedPanel.classList.add('open');
+        }, 100);
+      });
+
+      creedPanel.addEventListener('mouseleave', () => {
+        clearTimeout(creedHoverTimeout);
+        creedPanel.classList.remove('open');
+      });
     };
   </script>
 </body>
