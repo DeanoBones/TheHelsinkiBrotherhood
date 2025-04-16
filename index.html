@@ -620,7 +620,7 @@
   </div>
 
   <div class="squad-panel">
-    <h2>👥 Squad Roster</h2>
+    <h2>🎖️ Medals and Ribbons</h2>
     <div class="squad-members"></div>
   </div>
 
@@ -644,7 +644,7 @@
             OPERATION SILENT STORM
             <span class="status-label active">OPSTAT: ACTIVE</span>
           </div>
-          <div class="mission-date">Week 3 – April 19, 2025</div>
+          <div class="mission-date">Week 3 – April 18, 2025</div>
           <p>Conduct a covert raid on the northeast docks of Virolahti. Insert via sea under cover of darkness and plant an assortment of mines at key access points to disrupt enemy logistics. Exfiltrate undetected.</p>
         </div>
         <div class="mission">
@@ -699,15 +699,15 @@
     // Weekly medals for the main page (replace each week)
     const weeklyMedals = [
       {
-        title: 'Navy Cross',
+        title: 'Warden of the Wild',
         recipient: 'Bucky',
-        description: 'For leading the covert raid in OPERATION SILENT STORM, ensuring zero detections.',
+        description: 'For independently tracking and eliminating an enemy sniper team targeting civilians near Siikasaari.',
         date: 'April 19, 2025'
       },
       {
-        title: 'Achievement Medal',
+        title: 'Army Commendation Medal',
         recipient: 'Aust',
-        description: 'For precise mine placement during OPERATION SILENT STORM, disrupting enemy logistics.',
+        description: 'For dedicated effort in rescuing helicopter crash victims near Siikasaari sea port.',
         date: 'April 19, 2025'
       }
     ];
@@ -716,107 +716,85 @@
     const weeklyInfractions = [
       {
         title: 'Rules of Engagement Violation',
-        recipient: 'Jonny',
-        description: 'Engaged non-hostile target during OPERATION SILENT STORM.',
-        date: 'April 19, 2025'
+        recipient: '',
+        description: 'No violations reported this week',
+        date: 'April 13, 2025'
       }
     ];
 
     // Squad members with accumulating medals and infractions
     const squadMembers = [
+  {
+    name: 'Bucky',
+    medals: [
       {
-        name: 'Bucky',
-        medals: [
-          {
-            title: 'Medal of Valor',
-            description: 'For exceptional leadership during OPERATION STRONGHOLD, ensuring the successful establishment of the HQ under heavy enemy fire.',
-            date: 'April 5, 2025'
-          },
-          {
-            title: 'Distinguished Service Cross',
-            description: 'For coordinating the heliport seizure in OPERATION KING’S LANDING, maintaining squad cohesion despite intense resistance.',
-            date: 'April 11, 2025'
-          },
-          {
-            title: 'Navy Cross',
-            description: 'For leading the covert raid in OPERATION SILENT STORM, ensuring zero detections.',
-            date: 'April 19, 2025'
-          }
-        ],
-        infractions: [
-          {
-            title: 'Minor Conduct Violation',
-            description: 'Failure to follow radio protocol during OPERATION STRONGHOLD.',
-            date: 'April 5, 2025'
-          }
-        ]
+        title: 'Warden of the Wild',
+        description: 'For independently tracking and eliminating an enemy sniper team targeting civilians near Siikasaari.',
+        date: 'April 13, 2025'
       },
       {
-        name: 'Aust',
-        medals: [
-          {
-            title: 'Bronze Star',
-            description: 'For eliminating a high-value target during OPERATION STRONGHOLD, disrupting enemy command structure.',
-            date: 'April 5, 2025'
-          },
-          {
-            title: 'Purple Heart',
-            description: 'For sustaining injuries while protecting teammates during OPERATION KING’S LANDING.',
-            date: 'April 11, 2025'
-          },
-          {
-            title: 'Achievement Medal',
-            description: 'For precise mine placement during OPERATION SILENT STORM, disrupting enemy logistics.',
-            date: 'April 19, 2025'
-          }
-        ],
-        infractions: []
-      },
-      {
-        name: 'Old Man Bones',
-        medals: [
-          {
-            title: 'Commendation Medal',
-            description: 'For providing critical medical support during OPERATION STRONGHOLD, saving multiple squad members.',
-            date: 'April 5, 2025'
-          },
-          {
-            title: 'Silver Star',
-            description: 'For single-handedly holding a defensive position during OPERATION KING’S LANDING, allowing the squad to regroup.',
-            date: 'April 11, 2025'
-          }
-        ],
-        infractions: [
-          {
-            title: 'Equipment Misuse',
-            description: 'Improper handling of medical supplies during OPERATION KING’S LANDING.',
-            date: 'April 11, 2025'
-          }
-        ]
-      },
-      {
-        name: 'Jonny',
-        medals: [
-          {
-            title: 'Meritorious Service Medal',
-            description: 'For exceptional marksmanship during OPERATION STRONGHOLD, neutralizing key enemy positions.',
-            date: 'April 5, 2025'
-          },
-          {
-            title: 'Combat Action Medal',
-            description: 'For engaging multiple enemy combatants during OPERATION KING’S LANDING, securing the heliport.',
-            date: 'April 11, 2025'
-          }
-        ],
-        infractions: [
-          {
-            title: 'Rules of Engagement Violation',
-            description: 'Engaged non-hostile target during OPERATION SILENT STORM.',
-            date: 'April 19, 2025'
-          }
-        ]
+        title: 'Purple Heart',
+        description: 'For wounds sustained in Koivuniemi’s heroic last stand against overwhelming foes.',
+        date: 'April 12, 2025'
       }
-    ];
+    ],
+    infractions: []
+  },
+  {
+    name: 'Aust',
+    medals: [
+      {
+        title: 'Humanitarian Service Medal',
+        description: 'For risking enemy fire to deliver medical supplies to Koivuniemi.',
+        date: 'April 6, 2025'
+      },
+      {
+        title: 'Army Commendation Medal',
+        description: 'For dedicated effort in rescuing helicopter crash victims near Siikasaari sea port.',
+        date: 'April 13, 2025'
+      }
+    ],
+    infractions: []
+  },
+  {
+    name: 'Old Man Bones',
+    medals: [
+      {
+        title: 'Defense Meritorious Service Medal',
+        description: 'For engineering stalwart defenses at the new airbase in Harju.',
+        date: 'April 11, 2025'
+      },
+      {
+        title: 'Aerial Achievement Medal',
+        description: 'For exceptional accuracy in a AH-9 Pawnee near Niemela.',
+        date: 'April 11, 2025'
+      }
+    ],
+    infractions: []
+  },
+  {
+    name: 'Jonny',
+    medals: [
+      {
+        title: 'Resource Acquisition Medal',
+        description: 'For relentless determination in scavenging vital supplies at Hurppa seaport.',
+        date: 'April 6, 2025'
+      },
+      {
+        title: 'Purple Heart',
+        description: 'For wounds sustained in Koivuniemi’s heroic last stand against overwhelming foes.',
+        date: 'April 12, 2025'
+      }
+    ],
+    infractions: [
+      {
+        title: 'Wounded Combatant Violation',
+        description: 'Killed wounded soldiers near Kuusela, violating engagement protocols.',
+        date: 'April 11, 2025'
+      }
+    ]
+  }
+];
 
     // Creed Insignias reflecting the squad's values and identity
     const creedInsignias = [
@@ -838,7 +816,7 @@
       {
         title: 'Frost Fang',
         icon: 'wolf2.jpg',
-        caption: 'We strike the enemy hard, anywhere they hide.'
+        caption: 'We are the chill in the dark, cutting deep into enemy territory.'
       },
       {
         title: 'Nation’s Howl',
@@ -848,12 +826,12 @@
       {
         title: 'Raven’s Ally',
         icon: 'wolf2.jpg',
-        caption: 'With cunning allies, we survive through scavenging.'
+        caption: 'Through wit and scavenged steel, we outlast the enemy.'
       },
       {
         title: 'Iron Claw',
         icon: 'wolf2.jpg',
-        caption: 'We fight with every tool against tyranny.'
+        caption: 'No weapon is too old, no tool too humble'
       },
       {
         title: 'Ember Gaze',
