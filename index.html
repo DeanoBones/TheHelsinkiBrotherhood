@@ -697,36 +697,47 @@
     }
 
     // Weekly medals for the main page (replace each week)
-    const weeklyMedals = [
-      {
-        title: 'Warden of the Wild',
-        recipient: 'Bucky',
-        description: 'For independently tracking and eliminating an enemy sniper team targeting civilians near Siikasaari.',
-        date: 'April 13, 2025'
-      },
-      {
-        title: 'Army Commendation Medal',
-        recipient: 'Aust',
-        description: 'For dedicated effort in rescuing helicopter crash victims near Siikasaari sea port.',
-        date: 'April 13, 2025'
-      }
-    ];
+    // Weekly medals for the main page (replace each week)
+const weeklyMedals = [
+  {
+    title: 'Iron Wing Commendation',
+    recipient: 'Bucky',
+    description: 'Awarded for actions during Operation Silent Storm. Executed critical aerial logistics under enemy fire, successfully evaded anti-air missiles, coordinated team movement, and completed the objective despite injury.',
+    date: 'April 18, 2025'
+  },
+  {
+    title: 'Shadow Operative Cross',
+    recipient: 'Aust',
+    description: 'Awarded for actions during Operation Silent Storm. Maintained stealth during infiltration, neutralized enemy resistance, and stabilized a wounded teammate to ensure mission success.',
+    date: 'April 18, 2025'
+  }
+];
 
     // Weekly infractions for the main page (replace each week)
     const weeklyInfractions = [
-      {
-        title: 'Rules of Engagement Violation',
-        recipient: '',
-        description: 'No violations reported this week',
-        date: 'April 13, 2025'
-      }
-    ];
+  {
+    title: 'Rules of Engagement Violation',
+    recipient: 'Jonny',
+    description: 'Engaged and executed wounded enemy soldiers for loot. This action violates Geneva-style conduct expected of all members. Formal warning issued.',
+    date: 'April 18, 2025'
+  },
+  {
+    title: 'Conduct & Cohesion Breach',
+    recipient: 'Oldman Bones',
+    description: 'Publicly criticized mission planning after entering under-equipped during Operation Silent Storm. Verbal warning for insubordination and undermining unit cohesion.',
+    date: 'April 18, 2025'
+  }
+];
 
-    // Squad members with accumulating medals and infractions
     const squadMembers = [
   {
     name: 'Bucky',
     medals: [
+      {
+        title: 'Iron Wing Commendation',
+        description: 'Awarded for actions during Operation Silent Storm. Executed critical aerial logistics under enemy fire, successfully evaded anti-air missiles, coordinated team movement, and completed the objective despite injury.',
+        date: 'April 18, 2025'
+      },
       {
         title: 'Warden of the Wild',
         description: 'For independently tracking and eliminating an enemy sniper team targeting civilians near Siikasaari.',
@@ -743,6 +754,11 @@
   {
     name: 'Aust',
     medals: [
+      {
+        title: 'Shadow Operative Cross',
+        description: 'Awarded for actions during Operation Silent Storm. Maintained stealth during infiltration, neutralized enemy resistance, and stabilized a wounded teammate to ensure mission success.',
+        date: 'April 18, 2025'
+      },
       {
         title: 'Humanitarian Service Medal',
         description: 'For risking enemy fire to deliver medical supplies to Koivuniemi.',
@@ -766,11 +782,17 @@
       },
       {
         title: 'Aerial Achievement Medal',
-        description: 'For exceptional accuracy in a AH-9 Pawnee near Niemela.',
+        description: 'For exceptional accuracy in an AH-9 Pawnee near Niemela.',
         date: 'April 11, 2025'
       }
     ],
-    infractions: []
+    infractions: [
+      {
+        title: 'Conduct & Cohesion Breach',
+        description: 'Publicly criticized mission planning after entering under-equipped during Operation Silent Storm. Verbal warning for insubordination and undermining unit cohesion.',
+        date: 'April 18, 2025'
+      }
+    ]
   },
   {
     name: 'Jonny',
@@ -787,6 +809,11 @@
       }
     ],
     infractions: [
+      {
+        title: 'Rules of Engagement Violation',
+        description: 'Engaged and executed wounded enemy soldiers for loot. This action violates Geneva-style conduct expected of all members. Formal warning issued.',
+        date: 'April 18, 2025'
+      },
       {
         title: 'Wounded Combatant Violation',
         description: 'Killed wounded soldiers near Kuusela, violating engagement protocols.',
